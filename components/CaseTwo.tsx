@@ -1,6 +1,5 @@
 'use client';
 import { useSection } from '../hooks/useSection';
-import Image from 'next/image';
 
 const CASE_STYLES = {
   accent: '#D85A2A',
