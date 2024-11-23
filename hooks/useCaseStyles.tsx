@@ -8,14 +8,12 @@ export function useCaseStyles(
   accentColor: string,
   sectionId: string
 ) {
-  const { setColors, setActiveSection } = useColor();
+  const { setBackgroundColor, setTextColor, setAccentColor, setActiveSection } = useColor();
 
   useEffect(() => {
-    setColors({
-      backgroundColor,
-      textColor,
-      accentColor
-    });
+    setBackgroundColor(backgroundColor);
+    setTextColor(textColor);
+    setAccentColor(accentColor);
     setActiveSection(sectionId);
-  }, [backgroundColor, textColor, accentColor, sectionId, setColors, setActiveSection]);
+  }, [backgroundColor, textColor, accentColor, sectionId, setBackgroundColor, setTextColor, setAccentColor, setActiveSection]);
 } 
