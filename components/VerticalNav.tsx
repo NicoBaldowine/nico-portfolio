@@ -1,6 +1,7 @@
 'use client';
 import { useColor } from '../context/ColorContext';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const mainSections = [
   { id: 'hero', name: 'Hello' },
@@ -34,7 +35,7 @@ const VerticalNav = () => {
       <nav className="fixed left-0 top-0 h-screen w-[240px] hidden md:flex flex-col justify-between py-4 z-50 pointer-events-auto font-gellix">
         {/* Top - Logo */}
         <div className="w-full pl-8 pt-2">
-          <a 
+          <Link 
             href="/" 
             className="text-sm font-gellix hover:opacity-70 transition-all duration-300"
             style={{ 
@@ -43,7 +44,7 @@ const VerticalNav = () => {
             }}
           >
             Nico Baldovino
-          </a>
+          </Link>
         </div>
 
         {/* Middle - Main Navigation */}
