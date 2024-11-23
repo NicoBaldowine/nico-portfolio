@@ -24,7 +24,7 @@ const Hero = () => {
           </h1>
           <p className="text-[16px] md:text-[18px] font-inter text-white/40 leading-[140%] w-full">
             Beginning my career in startups and progressing through medium-sized firms, 
-            I've honed my skills in diverse environments including <br className="hidden md:block" />
+            I&apos;ve honed my skills in diverse environments including <br className="hidden md:block" />
             consulting agencies and larger corporations. Born in Chile, currently based in Denver, Colorado.
           </p>
         </div>
