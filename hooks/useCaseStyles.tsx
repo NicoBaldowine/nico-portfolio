@@ -11,7 +11,11 @@ export function useCaseStyles(
   const { setColors, setActiveSection } = useColor();
 
   useEffect(() => {
-    setColors(backgroundColor, textColor, accentColor);
+    setColors({
+      backgroundColor,
+      textColor,
+      accentColor
+    });
     setActiveSection(sectionId);
   }, [backgroundColor, textColor, accentColor, sectionId, setColors, setActiveSection]);
 } 
