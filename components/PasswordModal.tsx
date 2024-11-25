@@ -2,8 +2,12 @@
 
 import { useState } from 'react';
 import { usePasswordModal } from '../context/PasswordModalContext';
+import { useRouter } from 'next/navigation';
 
-const CORRECT_PASSWORD = 'nico2025';
+const CASE_PASSWORDS = {
+  case2: 'nico2025',
+  case4: 'nico2025'
+} as const;
 
 const SuccessIcon = () => (
   <svg 
@@ -26,7 +30,8 @@ const SuccessIcon = () => (
 );
 
 export default function PasswordModal() {
-  const { isOpen, closeModal } = usePasswordModal();
+  const router = useRouter();
+  const { isOpen, closeModal, activeCase } = usePasswordModal();
   const [isRequestMode, setIsRequestMode] = useState(false);
   const [isRequestSuccess, setIsRequestSuccess] = useState(false);
   const [password, setPassword] = useState('');
@@ -38,9 +43,12 @@ export default function PasswordModal() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === CORRECT_PASSWORD) {
+    
+    if (activeCase && password === CASE_PASSWORDS[activeCase as keyof typeof CASE_PASSWORDS]) {
+      const expiry = new Date().getTime() + (7 * 24 * 60 * 60 * 1000); // 7 days
+      localStorage.setItem('portfolioAccess', JSON.stringify({ expiry }));
       closeModal();
-      // Add your navigation or content reveal logic here
+      router.push(`/case/${activeCase}`);
     } else {
       setError('Invalid password');
     }

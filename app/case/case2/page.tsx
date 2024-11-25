@@ -1,19 +1,25 @@
 'use client';
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { useColor } from '../../../context/ColorContext';
 
 const CASE_STYLES = {
-  accent: '#A1BFE4',
-  background: '#00091E',
-  auxiliary: '#08122B',
+  accent: '#D85A2A',
+  background: '#F8D4B8',
+  auxiliary: '#F7C9A6'
 } as const;
 
-export default function CaseOnePage() {
+export default function CaseTwoPage() {
+  useEffect(() => {
+    document.body.style.backgroundColor = CASE_STYLES.background;
+  }, []);
+
   return (
-    <div className="relative w-full overflow-visible">
+    <div className="relative w-full overflow-visible" style={{ backgroundColor: CASE_STYLES.background }}>
       {/* Back Button */}
       <div className="fixed top-8 left-8 z-50">
         <Link
-          href="/#case1"
+          href="/#case2"
           className="group flex items-center px-6 py-3 border rounded-full transition-all duration-300"
           style={{
             color: CASE_STYLES.accent,
@@ -58,7 +64,7 @@ export default function CaseOnePage() {
             className="text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[4.5rem] font-gellix tracking-[-0.02em] leading-[1.1] mb-8"
             style={{ color: CASE_STYLES.accent }}
           >
-            Redesigning remittance
+            Redefining digital banking
           </h1>
 
           {/* Divider Line */}
@@ -75,17 +81,17 @@ export default function CaseOnePage() {
                 className="text-[24px] md:text-[32px] font-gellix tracking-[-0.02em] leading-[1.2]"
                 style={{ color: CASE_STYLES.accent }}
               >
-                Transforming how people send money across borders, redefining the future of financial transactions.
+                Transforming traditional banking into a seamless digital experience
               </h2>
             </div>
 
             {/* Right Column - Description */}
             <div>
-              <p className="text-[18px] font-inter text-white/80 leading-[1.6]">
-                A revolutionary remittance platform built to solve the challenges of cross-border payments. Founded with the vision of making international transfers seamless, it was designed to address the complexities facing modern financial transactions.
+              <p className="text-[18px] font-inter text-black/60 leading-[1.6]">
+                A revolutionary digital banking platform built to address the evolving needs of modern consumers. Founded with the vision of making banking more accessible and user-friendly, it challenges traditional banking norms.
               </p>
-              <p className="text-[18px] font-inter text-white/80 leading-[1.6] mt-6">
-                Working closely with the user community, we embarked on reimagining the remittance experience. We needed to create a platform that users could trust while delivering on the promise of efficient cross-border payments. This led us to developing intuitive solutions rather than complex processes.
+              <p className="text-[18px] font-inter text-black/60 leading-[1.6] mt-6">
+                Working closely with users and financial experts, we reimagined the banking experience from the ground up. Our goal was to create a platform that combines security with simplicity, making financial management intuitive for everyone.
               </p>
             </div>
           </div>
@@ -131,10 +137,10 @@ export default function CaseOnePage() {
             </h2>
           </div>
           <div>
-            <p className="text-[18px] font-inter text-white/80 leading-[1.6] mb-12">
-              Travelers often struggle with managing multiple aspects of their journey - 
-              from keeping track of expenses in different currencies to storing important 
-              travel documents securely.
+            <p className="text-[18px] font-inter text-black/60 leading-[1.6] mb-12">
+              Traditional banking systems often create friction in daily financial 
+              activities, with complex interfaces and outdated processes that don't 
+              align with modern user expectations.
             </p>
             <div 
               className="w-full aspect-video rounded-[24px]"
@@ -142,14 +148,6 @@ export default function CaseOnePage() {
             />
           </div>
         </section>
-
-        {/* Full Width Image Section */}
-        <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] mb-32">
-          <div 
-            className="w-full aspect-[21/9]"
-            style={{ backgroundColor: CASE_STYLES.auxiliary }}
-          />
-        </div>
 
         {/* Research Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32">
@@ -162,9 +160,10 @@ export default function CaseOnePage() {
             </h2>
           </div>
           <div>
-            <p className="text-[18px] font-inter text-white/80 leading-[1.6] mb-12">
-              Through extensive user research and interviews with frequent travelers, 
-              we identified several key pain points and opportunities for improvement.
+            <p className="text-[18px] font-inter text-black/60 leading-[1.6] mb-12">
+              Through extensive user research and analysis of banking patterns, 
+              we identified key opportunities to simplify and enhance the digital 
+              banking experience.
             </p>
             <div className="grid grid-cols-2 gap-6 mb-12">
               {[1,2,3,4].map((_, index) => (
@@ -178,7 +177,7 @@ export default function CaseOnePage() {
           </div>
         </section>
 
-        {/* Solution Section with Side Images */}
+        {/* Solution Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32">
           <div>
             <h2 
@@ -187,9 +186,9 @@ export default function CaseOnePage() {
             >
               The Solution
             </h2>
-            <p className="text-[18px] font-inter text-white/80 leading-[1.6]">
-              We designed a comprehensive yet intuitive mobile app that combines expense 
-              tracking, document storage, and itinerary management.
+            <p className="text-[18px] font-inter text-black/60 leading-[1.6]">
+              We developed an intuitive digital banking platform that simplifies 
+              financial management while maintaining robust security measures.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-6">
@@ -205,5 +204,4 @@ export default function CaseOnePage() {
       </div>
     </div>
   );
-}
-
+} 

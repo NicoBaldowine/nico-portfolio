@@ -8,9 +8,50 @@ const CASE_STYLES = {
   auxiliary: '#F7C9A6'
 } as const;
 
+const LockIcon = () => (
+  <svg 
+    className="w-4 h-4" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path 
+      d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+    <path 
+      d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const ArrowIcon = () => (
+  <svg 
+    className="w-4 h-4" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path 
+      d="M5 12H19M19 12L12 5M19 12L12 19" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 const CaseTwo = () => {
   const sectionRef = useSection('case2', CASE_STYLES.background, '#000000', CASE_STYLES.accent);
-  const { openModal } = usePasswordModal();
+  const { openModal, hasAccess } = usePasswordModal();
 
   return (
     <section 
@@ -79,30 +120,15 @@ const CaseTwo = () => {
                 className="group flex items-center px-6 py-3 border rounded-full transition-all duration-300"
                 style={{ 
                   color: CASE_STYLES.accent,
-                  borderColor: `${CASE_STYLES.accent}33`
+                  borderColor: CASE_STYLES.auxiliary
                 }}
-                onMouseOver={e => e.currentTarget.style.borderColor = CASE_STYLES.accent}
-                onMouseOut={e => e.currentTarget.style.borderColor = `${CASE_STYLES.accent}33`}
               >
                 <span className="mr-2">See case</span>
-                <svg 
-                  className="w-4 h-4" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path 
-                    d="M5 12H19M19 12L12 5M19 12L12 19" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                    style={{ 
-                      stroke: CASE_STYLES.accent,
-                      opacity: 0.33
-                    }}
-                    className="group-hover:!opacity-100 transition-all duration-300"
-                  />
-                </svg>
+                {hasAccess ? (
+                  <ArrowIcon />
+                ) : (
+                  <LockIcon />
+                )}
               </button>
             </div>
           </div>
