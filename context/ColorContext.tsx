@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 type ColorContextType = {
   backgroundColor: string;
@@ -10,6 +10,7 @@ type ColorContextType = {
   setTextColor: (color: string) => void;
   setAccentColor: (color: string) => void;
   setActiveSection: (section: string) => void;
+  setColors: (bg: string, text: string, accent: string) => void;
 };
 
 const ColorContext = createContext<ColorContextType | undefined>(undefined);
@@ -19,6 +20,17 @@ export function ColorProvider({ children }: { children: React.ReactNode }) {
   const [textColor, setTextColor] = useState('#FFFFFF');
   const [accentColor, setAccentColor] = useState('#FFFFFF');
   const [activeSection, setActiveSection] = useState('');
+
+  const setColors = (bg: string, text: string, accent: string) => {
+    setBackgroundColor(bg);
+    setTextColor(text);
+    setAccentColor(accent);
+  };
+
+  useEffect(() => {
+    document.body.style.backgroundColor = backgroundColor;
+    document.body.style.color = textColor;
+  }, [backgroundColor, textColor]);
 
   return (
     <ColorContext.Provider
@@ -31,11 +43,10 @@ export function ColorProvider({ children }: { children: React.ReactNode }) {
         setTextColor,
         setAccentColor,
         setActiveSection,
+        setColors,
       }}
     >
-      <div style={{ backgroundColor, color: textColor }}>
-        {children}
-      </div>
+      {children}
     </ColorContext.Provider>
   );
 }

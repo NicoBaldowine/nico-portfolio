@@ -1,6 +1,9 @@
 'use client';
 import { useColor } from '../context/ColorContext';
 import { usePathname } from 'next/navigation';
+import { SiLinkedin } from 'react-icons/si';
+import { HiOutlineMail } from 'react-icons/hi';
+import { SiInstagram } from 'react-icons/si';
 
 const mainSections = [
   { id: 'hero', name: 'Hello' },
@@ -17,8 +20,24 @@ const mainSections = [
 ] as const;
 
 const socialLinks = [
-  { id: 'linkedin', name: 'LinkedIn', href: 'https://linkedin.com/in/yourusername' },
-  { id: 'contact', name: 'Email me', href: '#contact' }
+  { 
+    id: 'linkedin', 
+    name: 'LinkedIn', 
+    href: 'https://linkedin.com/in/yourusername',
+    icon: SiLinkedin
+  },
+  { 
+    id: 'email', 
+    name: 'Email me', 
+    href: '#contact',
+    icon: HiOutlineMail
+  },
+  { 
+    id: 'instagram', 
+    name: 'Instagram', 
+    href: 'https://instagram.com/yourusername',
+    icon: SiInstagram
+  }
 ];
 
 const VerticalNav = () => {
@@ -81,20 +100,21 @@ const VerticalNav = () => {
 
         {/* Bottom - Social Links */}
         <div className="w-full pl-8">
-          <ul className="flex flex-col gap-2">
+          <ul className="flex gap-4">
             {socialLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={link.href}
-                  target={link.id === 'linkedin' ? '_blank' : undefined}
-                  rel={link.id === 'linkedin' ? 'noopener noreferrer' : undefined}
-                  className="text-sm font-gellix opacity-40 hover:opacity-100 transition-all duration-300"
+                  target={link.id !== 'email' ? '_blank' : undefined}
+                  rel={link.id !== 'email' ? 'noopener noreferrer' : undefined}
+                  className="block opacity-40 hover:opacity-100 transition-all duration-300"
                   style={{ 
                     color: textColor,
                     transition: 'color 0.5s ease-in-out'
                   }}
+                  aria-label={link.name}
                 >
-                  {link.name}
+                  <link.icon size={20} />
                 </a>
               </li>
             ))}
@@ -112,21 +132,14 @@ const VerticalNav = () => {
                   ? '/' 
                   : `/${isDetailPage ? '' : '#'}${section.id}`
                 }
-                className="block w-1.5 h-1.5 rounded-full transition-all duration-300 relative group"
+                className="block w-1.5 h-1.5 rounded-full transition-all duration-300"
                 style={{ 
                   backgroundColor: activeSection === section.id 
                     ? accentColor 
-                    : 'rgba(255, 255, 255, 0.2)'
+                    : textColor,
+                  opacity: activeSection === section.id ? 1 : 0.4
                 }}
-              >
-                {/* Tooltip on hover */}
-                <span 
-                  className="absolute left-6 top-1/2 -translate-y-1/2 px-2 py-1 text-xs font-gellix whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ color: textColor }}
-                >
-                  {section.name}
-                </span>
-              </a>
+              />
             </li>
           ))}
         </ul>

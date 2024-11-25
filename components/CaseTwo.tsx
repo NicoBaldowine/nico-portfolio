@@ -1,5 +1,6 @@
 'use client';
 import { useSection } from '../hooks/useSection';
+import { usePasswordModal } from '../context/PasswordModalContext';
 
 const CASE_STYLES = {
   accent: '#D85A2A',
@@ -9,6 +10,7 @@ const CASE_STYLES = {
 
 const CaseTwo = () => {
   const sectionRef = useSection('case2', CASE_STYLES.background, '#000000', CASE_STYLES.accent);
+  const { openModal } = usePasswordModal();
 
   return (
     <section 
@@ -58,22 +60,22 @@ const CaseTwo = () => {
 
             {/* Title */}
             <h2 
-              className="text-[4.5rem] font-gellix tracking-[-0.02em] leading-[110%] mb-[12px]"
+              className="text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[4.5rem] font-gellix tracking-[-0.02em] leading-[110%] mb-[12px]"
               style={{ color: CASE_STYLES.accent }}
             >
               Redesigning Remittance
             </h2>
 
             {/* Description */}
-            <p className="text-[16px] font-inter text-black/40 leading-[140%] max-w-[90%] mb-[56px]">
+            <p className="text-[14px] md:text-[16px] font-inter text-black/40 leading-[140%] max-w-[90%] mb-4 md:mb-[56px]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do 
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
 
             {/* Button Container */}
-            <div className="flex">
-              <a 
-                href="#" 
+            <div className="flex mb-8 md:mb-0">
+              <button 
+                onClick={() => openModal('case2')}
                 className="group flex items-center px-6 py-3 border rounded-full transition-all duration-300"
                 style={{ 
                   color: CASE_STYLES.accent,
@@ -101,7 +103,7 @@ const CaseTwo = () => {
                     className="group-hover:!opacity-100 transition-all duration-300"
                   />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
         </div>

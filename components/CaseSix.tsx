@@ -60,7 +60,7 @@ const CaseSix = () => {
 
             {/* Title */}
             <h2 
-              className="text-[4.5rem] font-gellix tracking-[-0.02em] leading-[110%] mb-[12px]"
+              className="text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[4.5rem] font-gellix tracking-[-0.02em] leading-[110%] mb-[12px]"
               style={{ color: CASE_STYLES.accent }}
             >
               Reimagine
@@ -69,13 +69,13 @@ const CaseSix = () => {
             </h2>
 
             {/* Description */}
-            <p className="text-[16px] font-inter text-black/40 leading-[140%] max-w-[90%] mb-[56px]">
+            <p className="text-[14px] md:text-[16px] font-inter text-black/40 leading-[140%] max-w-[90%] mb-4 md:mb-[56px]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do 
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
 
             {/* Button Container */}
-            <div className="flex">
+            <div className="flex mb-8 md:mb-0">
               <a 
                 href="#" 
                 className="group flex items-center px-6 py-3 border rounded-full transition-all duration-300"

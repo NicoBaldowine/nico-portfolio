@@ -9,7 +9,7 @@ export default function CaseLayout({
 }) {
   return (
     <ColorProvider>
-      <div className="relative min-h-screen" style={{ backgroundColor: '#00091E' }}>
+      <div className="relative min-h-screen overflow-auto" style={{ backgroundColor: '#00091E' }}>
         <VerticalNav />
         {children}
       </div>

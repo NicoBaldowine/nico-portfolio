@@ -42,20 +42,20 @@ const CaseThree = () => {
 
           {/* Title */}
           <h2 
-            className="text-[4.5rem] font-gellix tracking-[-0.02em] leading-[110%] mb-[12px] max-w-[800px]"
+            className="text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[4.5rem] font-gellix tracking-[-0.02em] leading-[110%] mb-[12px] max-w-[800px]"
             style={{ color: CASE_STYLES.accent }}
           >
             Shinkai, AI Made simple
           </h2>
 
           {/* Description - Actualizado mb-[24px] */}
-          <p className="text-[16px] font-inter text-white/40 leading-[140%] max-w-[600px] mb-[24px]">
+          <p className="text-[14px] md:text-[16px] font-inter text-white/40 leading-[140%] max-w-[600px] mb-4 md:mb-[24px]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do 
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
 
           {/* Button Container */}
-          <div className="flex">
+          <div className="flex mb-8 md:mb-0">
             <a 
               href="#" 
               className="group flex items-center px-6 py-3 border rounded-full transition-all duration-300"

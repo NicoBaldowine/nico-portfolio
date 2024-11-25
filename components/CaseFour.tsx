@@ -1,5 +1,6 @@
 'use client';
 import { useSection } from '../hooks/useSection';
+import { usePasswordModal } from '../context/PasswordModalContext';
 import Image from 'next/image';
 
 const CASE_STYLES = {
@@ -10,6 +11,7 @@ const CASE_STYLES = {
 
 const CaseFour = () => {
   const sectionRef = useSection('case4', CASE_STYLES.background, '#FFFFFF', CASE_STYLES.accent);
+  const { openModal } = usePasswordModal();
 
   return (
     <section 
@@ -44,24 +46,22 @@ const CaseFour = () => {
 
             {/* Title */}
             <h2 
-              className="text-[4.5rem] font-gellix tracking-[-0.02em] leading-[110%] mb-[12px]"
+              className="text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[4.5rem] font-gellix tracking-[-0.02em] leading-[110%] mb-[12px]"
               style={{ color: CASE_STYLES.accent }}
             >
-              Mobile banking
-              <br />
-              Ecosystem Strategy
+              Mobile banking<br />Ecosystem Strategy
             </h2>
 
             {/* Description */}
-            <p className="text-[16px] font-inter text-white/40 leading-[140%] max-w-[90%] mb-[56px]">
+            <p className="text-[14px] md:text-[16px] font-inter text-white/40 leading-[140%] max-w-[90%] mb-4 md:mb-[56px]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do 
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
 
             {/* Button Container */}
-            <div className="flex">
-              <a 
-                href="#" 
+            <div className="flex mb-8 md:mb-0">
+              <button 
+                onClick={() => openModal('case4')}
                 className="group flex items-center px-6 py-3 border rounded-full transition-all duration-300"
                 style={{ 
                   color: CASE_STYLES.accent,
@@ -89,7 +89,7 @@ const CaseFour = () => {
                     className="group-hover:!opacity-100 transition-all duration-300"
                   />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
 

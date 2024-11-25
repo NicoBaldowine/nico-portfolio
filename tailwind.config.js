@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss";
-
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,8 +9,9 @@ export default {
     extend: {
       fontFamily: {
         gellix: ['Gellix', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
     },
   },
   plugins: [],
-} satisfies Config;
+}
